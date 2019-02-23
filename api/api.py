@@ -35,13 +35,9 @@ def teste():
 
 @app.route("/")
 def hello():
-    return "Benvido a I Know It!\n"
+    return "Bem vindo ao I Know It!\n"
 
-@app.route("/Teste")
-def Teste():
-    return "Welcome to teste da I Know It!\n"
-
-@app.route("/getDados")
+@app.route("/getData")
 def getDados():
     try:
         cursor = mysql.connect().cursor()
