@@ -14,8 +14,8 @@ services:
     image: auryum/iknowit:mysql
     ports:
       - "3307:3306"
-    volumes:
-      - /var/lib/mysql
+    #volumes:
+    #  - /var/lib/mysql
     environment:
        MYSQL_ROOT_PASSWORD: senhaFiap
        MYSQL_USER: root
