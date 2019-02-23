@@ -1,0 +1,22 @@
+version: '3'
+services:
+
+  api:
+    image: auryum/iknowit:api
+    ports:
+      - "4000:5000"
+    links:
+      - mysql
+    depends_on:
+      - mysql
+
+  mysql:
+    image: auryum/iknowit:mysql
+    ports:
+      - "3307:3306"
+    volumes:
+      - /var/lib/mysql
+    environment:
+       MYSQL_ROOT_PASSWORD: senhaFiap
+       MYSQL_USER: root
+       MYSQL_DATABASE: iknowitdb
