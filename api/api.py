@@ -48,7 +48,7 @@ def getDados():
         return json_string
     except Exception as e:
         return 'Erro /getDados' + str(e) + traceback.format_exc()
-
+		
 if __name__ == "__main__":
     #teste()
     app.run(host='0.0.0.0',debug=False)
