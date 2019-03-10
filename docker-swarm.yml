@@ -11,7 +11,7 @@ services:
     depends_on:
       - mysql
     deploy:
-      replicas: 1
+      replicas: 3
       mode: replicated
       restart_policy:
         condition: on-failure
