@@ -1,0 +1,21 @@
+link GitHub:
+https://github.com/auryum/iknowit.git
+
+links Docker Hub (sem web): 
+https://hub.docker.com/r/auryum/iknowit
+docker pull auryum/iknowit:api
+docker pull auryum/iknowit:mysql
+
+Docker Compose (sem web):
+docker-compose.yml
+
+Docker Swarm (sem web):
+docker-swarm.yml
+
+links Docker Hub (sem web): 
+https://hub.docker.com/r/auryum/iknowit
+docker pull auryum/iknowit:webweb
+docker pull auryum/iknowit:apiweb
+docker pull auryum/iknowit:mysql
+Docker Swarm (com web):
+docker-swarm-web.yml

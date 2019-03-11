@@ -10,11 +10,13 @@ from flaskext.mysql import MySQL
 
 mysql = MySQL()
 app = Flask(__name__)
+cors = CORS(app)
 app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'senhaFiap'
 app.config['MYSQL_DATABASE_DB'] = 'iknowitdb'
 app.config['MYSQL_DATABASE_HOST'] = 'mysql'
-#app.config['CORS_HEADERS'] = 'Content-Type'
+app.config['CORS_HEADERS'] = 'Content-Type'
+app.config['CORS_HEADERS'] = 'Access-Control-Allow-Origin'
 mysql.init_app(app)
 
 def json_serial(obj):
@@ -22,16 +24,6 @@ def json_serial(obj):
     if isinstance(obj, (datetime, date)):
         return obj.isoformat()
     raise TypeError ("Type %s not serializable" % type(obj))
-
-def teste():
-    cursor = mysql.connect().cursor()
-    cursor.execute("SELECT * from Ingredientes")
-    print cursor, str(cursor)
-    r = [dict((cursor.description[i][0], value)
-              for i, value in enumerate(row)) for row in cursor.fetchall()]
-    json_string = json.dumps(r, default=json_serial)
-    print json_string
-    return "hola"
 
 @app.route("/")
 def hello():
@@ -50,5 +42,4 @@ def getDados():
         return 'Erro /getDados' + str(e) + traceback.format_exc()
 		
 if __name__ == "__main__":
-    #teste()
     app.run(host='0.0.0.0',debug=False)
